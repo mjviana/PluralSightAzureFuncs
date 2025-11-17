@@ -1,0 +1,16 @@
+
+###
+POST http://localhost:7071/api/purchase
+Content-Type: application/json
+
+{
+  "productId": 3000,
+  "quantity": 1,
+  "customerName": "Mario",
+  "customerEmail": "mario@example.com",
+  "purchasePrice": 100.00
+}
+
+
+###
+GET http://localhost:7071/api/purchase/4b090956-515b-471e-a017-6e5fee3ed7ca

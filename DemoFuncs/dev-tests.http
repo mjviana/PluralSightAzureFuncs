@@ -1,0 +1,14 @@
+###
+POST  https://func-azfuncsdd-dev-01.azurewebsites.net/api/purchase?code=<YOUR_FUNCTION_KEY>
+Content-Type: application/json
+
+{
+  "productId": 2000,
+  "quantity": 2,
+  "customerName": "Mario",
+  "customerEmail": "mario@example.com",
+  "purchasePrice": 100.00
+}
+
+### 
+GET https://func-azfuncsdd-dev-01.azurewebsites.net/api/purchase/{orderId:guid}?code=<YOUR_FUNCTION_KEY>
