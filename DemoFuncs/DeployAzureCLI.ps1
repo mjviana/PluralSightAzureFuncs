@@ -4,8 +4,8 @@ $SUBSCRIPTION = "My Azure Subscription"
 az login
 az account set -s $SUBSCRIPTION
 
-$RESOURCE_GROUP = "azure-funcs-deep-dive"
-$LOCATION = "northeurope" # change this to a location near you, (use az account list-locations -o table)
+$RESOURCE_GROUP = "rg-azfuncsdd-dev-esc-01"
+$LOCATION = "spaincentral" # change this to a location near you, (use az account list-locations -o table)
 
 # create a resource group
 az group create --name $RESOURCE_GROUP `
@@ -73,6 +73,14 @@ az functionapp config appsettings set `
     --name $FUNCTION_APP `
     --resource-group $RESOURCE_GROUP `
     --setting "CosmosDbConnection=$COSMOSDB_CONNECTION_STRING"
+
+# Create API Management 
+az apim create --name "your-apim-name" `
+    --resource-group $RESOURCE_GROUP `
+    --publisher-email "your-email@example.com" `
+    --publisher-name "your-name" `
+    --location $LOCATION `
+    --sku-name "Developer" # Developer is the cheapest option for dev/test and is selected by default if you don't specify a SKU.
 
 # To clean up...
 az group delete --name $RESOURCE_GROUP
